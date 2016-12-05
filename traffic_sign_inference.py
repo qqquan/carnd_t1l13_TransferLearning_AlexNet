@@ -13,7 +13,7 @@ from alexnet import AlexNet
 x = tf.placeholder(tf.float32, (None, 32, 32, 3))
 # TODO: Resize the images so they can be fed into AlexNet.
 # HINT: Use `tf.image.resize_images` to resize the images
-resized = ...
+resized = tf.image.resize_images(x,(227, 227))
 
 probs = AlexNet(resized)
 
@@ -27,6 +27,8 @@ im1 = im1 - np.mean(im1)
 
 im2 = imread("stop.jpg").astype(np.float32)
 im2 = im2 - np.mean(im2)
+
+
 
 # Run Inference
 t = time.time()
